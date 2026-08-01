@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A Secret For You... 🤫❤️</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { 
+             font-family: 'Poppins', Arial, sans-serif;
+             background: linear-gradient(135deg, #ffe5ec 0%, #ffc2d1 100%);
+             min-height: 100vh;
+             display: flex;
+             justify-content: center;
+             align-items: center;
+             overflow: hidden;
+             }
+        .card { 
+            background: white; padding: 30px; border-radius: 20px; 
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1); 
+            max-width: 450px; width: 90%; text-align: center; 
+            transition: all 0.5s ease;
+        }
+        .hidden { display: none !important; }
+        h1 { color: #ff477e; margin-bottom: 15px; font-size: 1.8rem; }
+        p { color: #4a4a4a; line-height: 1.6; font-size: 1rem; margin-bottom: 20px; }
+        
+        .btn { 
+            background: #ff477e; color: white; border: none; 
+            padding: 12px 30px; border-radius: 25px; 
+            font-size: 1rem; font-weight: bold; cursor: pointer; 
+            transition: 0.2s; box-shadow: 0 5px 15px rgba(255,71,126,0.3);
+            margin-top: 10px;
+        }
+        .btn:hover { background: #ff0a54; transform: scale(1.05); }
+        
+        .polaroid { 
+            background: #f8f9fa; padding: 10px 10px 25px 10px; 
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1); 
+            transform: rotate(-3deg); margin: 20px auto; max-width: 200px;
+        }
+        
+        /* PHOTO HEARTBEAT ANIMATION */
+        .pulse-photo {
+            width: 100%; 
+            height: 130px; 
+            object-fit: cover; 
+            border-radius: 5px; 
+            animation: heartbeat 2s infinite ease-in-out;
+        }
+        
+        .btn-container { 
+            display: flex; justify-content: center; align-items: center; gap: 20px; 
+            margin-top: 20px; position: relative; height: 60px; width: 100%;
+        }
+        #noBtn { 
+            background: #6c757d; position: absolute; transition: 0.1s ease;
+        }
+        #yesBtn { position: relative; z-index: 10; margin-right: 120px; }
+        #noBtn { left: calc(50% + 20px); }
+
+        /* DIET COKE ANIMATION */
+        .coke-container {
+            position: relative;
+            width: 100px;
+            height: 160px;
+            margin: 20px auto;
+            animation: floatCan 3s ease-in-out infinite;
+        }
+        .coke-can {
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, #cfcfcf, #ffffff, #999999);
+            border-radius: 15px;
+            border: 3px solid #444;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .coke-label {
+            background: #e63946;
+            width: 100%;
+            padding: 8px 0;
+            color: white;
+            font-weight: 900;
+            font-size: 1.1rem;
+            transform: rotate(-10deg);
+            text-shadow: 1px 1px 2px black;
+            font-family: 'Impact', Arial, sans-serif;
+        }
+        .diet-text {
+            font-size: 0.6rem;
+            color: #444;
+            font-weight: bold;
+            text-transform: uppercase;
+            margin-top: 5px;
+        }
+        .straw {
+            width: 8px;
+            height: 40px;
+            background: linear-gradient(to right, #ff477e, #ffffff, #ff477e);
+            position: absolute;
+            top: -25px;
+            left: 45px;
+            transform: rotate(15deg);
+            z-index: -1;
+        }
+
+        .cry-emoji {
+            font-size: 4rem;
+            margin-bottom: 15px;
+        }
+
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.06); }
+            100% { transform: scale(1); }
+        }
+        @keyframes floatCan {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-12px) rotate(5deg); }
+        }
+    </style>
+</head>
+<body>
+<audio id="bgMusic" loop style="display:none;">
+    <source src="song.mp3" type="audio/mpeg">
+</audio>
+
+   <!-- STEP 1 -->
+    <div id="step1" class="card">
+        <h1>Hey! Suno na... 🫣</h1>
+        <p>Tere liye ek bohot special secret website banayi hai tere is ullha ne. Isko poora end tak dekhna, beech mein band mat karna!</p>
+        <button class="btn" onclick="nextStep(1, 2)">Open Secret 🎁</button>
+    </div>
+
+    <!-- STEP 2 -->
+    <div id="step2" class="card hidden">
+        <h1>You Are Special ✨</h1>
+        <div class="polaroid">
+            <!-- YAHAN APNA DIRECT LINK DALO -->
+            <img src="https://i.postimg.cc/SQfQ9bvb/IMG-20260623-WA0004.jpg" class="pulse-photo">
+            <p style="font-size: 0.8rem; margin: 5px 0 0 0; font-style: italic;">Fav Person ❤️</p>
+        </div>
+        <p>Tu duniya ki sabse pyaari aur pagal dost hai! Tere ko paresha karne mein jo maza aata hai, woh kisi aur ke sath nahi aata. Thank 💋 free me rakh 😹 aur meri jheli hui baaton ke liye thanks !</p>
+        <button class="btn" onclick="nextStep(2, 3)">Next Surprise 🚀</button>
+    </div>
+
+    <!-- STEP 3 -->
+    <div id="step3" class="card hidden">
+        <h1>The Final Question 💘</h1>
+        <p>Ab itna sab sun liya hai toh sach-sach bata... pyaar karti he 😋😺  ?</p>
+        <div class="btn-container">
+            <button class="btn" id="yesBtn" onclick="nextStep(3, 4)"> 🌝 Hmm 🌚</button>
+            <button class="btn" id="noBtn" onmouseover="moveNoButton()" onclick="moveNoButton()">Nahi 😭</button>
+        </div>
+    </div>
+
+    <!-- STEP 4 -->
+    <div id="step4" class="card hidden">
+        <h1 style="color: #444;">Hehehe... Mujhe Pata Tha! 🎉</h1>
+        <p style="font-size: 1.3rem; font-weight: bold; color: #ff477e; margin-top: 10px;">Le Diet Coke Pi! 🥤✨</p>
+        
+        <div class="coke-container">
+            <div class="straw"></div>
+            <div class="coke-can">
+                <div class="diet-text">Diet</div>
+                <div class="coke-label">COKE</div>
+            </div>
+        </div>
+        <button class="btn" onclick="nextStep(4, 5)">One More Thing... 👉</button>
+    </div>
+
+    <!-- STEP 5 -->
+    <div id="step5" class="card hidden">
+        <div class="cry-emoji">💌🫀</div>
+        <h1 style="font-size: 1.5rem; color: #ff477e;">Please Yaar... 💢</h1>
+        <p style="font-size: 1.2rem; font-weight: bold; line-height: 1.5; margin: 15px 0;">
+            Ek baar "I Love You" bol de... <br> Friend samajh kar hi bol de yaar! 😭🙏
+        </p>
+        <button class="btn" onclick="alert('Hehehe! Ab screenshot leke WhatsApp pe bhej jaldi taki meko pta chla dekh liya ! 😜📸')">Okay, Bhejti Hoon! 😚</button>
+    </div>
+
+    <script>
+        let clickCount = 0;
+
+        function nextStep(current, next) {
+        
+        const music = document.getElementById("bgMusic");
+        
+        if (music && music.paused) {
+        music.play().catch(() => {});
+        }
+        
+        document.getElementById('step' + current).classList.add('hidden');
+        document.getElementById('step' + next).classList.remove('hidden');
+        
+        }
+
+        function moveNoButton() {
+            clickCount++;
+            const noBtn = document.getElementById('noBtn');
+            const card = document.querySelector('#step3');
+
+            if (clickCount >= 5) {
+                noBtn.style.display = 'none';
+                return;
+            }
+
+            const cardRect = card.getBoundingClientRect();
+            let side = Math.floor(Math.random() * 4); 
+            let x, y;
+
+            if (side === 0) {
+                x = Math.random() * (window.innerWidth - 100);
+                y = Math.random() * (cardRect.top - 60);
+            } else if (side === 1) {
+                x = Math.random() * (window.innerWidth - 100);
+                y = cardRect.bottom + Math.random() * (window.innerHeight - cardRect.bottom - 60);
+            } else if (side === 2) {
+                x = Math.random() * (cardRect.left - 100);
+                y = Math.random() * (window.innerHeight - 60);
+            } else {
+                x = cardRect.right + Math.random() * (window.innerWidth - cardRect.right - 100);
+                y = Math.random() * (window.innerHeight - 60);
+            }
+
+            x = Math.max(10, Math.min(x, window.innerWidth - noBtn.offsetWidth - 20));
+            y = Math.max(10, Math.min(y, window.innerHeight - noBtn.offsetHeight - 20));
+
+            noBtn.style.position = 'fixed';
+            noBtn.style.left = x + 'px';
+            noBtn.style.top = y + 'px';
+        }
+    </script>
+</body>
+</html>
